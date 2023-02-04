@@ -13,11 +13,6 @@ public class BallInstance : MonoBehaviour
             instance = this;
 	}
 
-    void Start()
-    {
-        InstantiateObject();
-    }
-
     public void InstantiateObject()
     {
         Instantiate(SpawnObjPrefab, transformInstantiate);

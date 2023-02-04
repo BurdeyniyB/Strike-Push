@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class ObstacleContact : MonoBehaviour
 {
        private Animator anim;
+       GameObject BallPush;
 
        public void OnCollision()
        {

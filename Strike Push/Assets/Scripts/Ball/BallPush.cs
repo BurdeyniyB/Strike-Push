@@ -13,7 +13,6 @@ public class BallPush : MonoBehaviour
     bool isDragging = false;
     bool NoPush = true;
 
-
 	void Start()
 	{
 	  rb = GetComponent<Rigidbody> ();
@@ -25,39 +24,41 @@ public class BallPush : MonoBehaviour
 
     void Update()
     {
-		if (Input.GetMouseButtonDown (0)) {
+       if(Input.touchCount > 0)
+       {
+		if (Input.GetTouch(0).phase == TouchPhase.Began) {
           Debug.Log("crya");
           if(NoPush)
           {
-		    Ball.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
-		    transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+		    Ball.transform.localScale -= new Vector3(0.07f, 0.07f, 0.07f);
+		    transform.localScale += new Vector3(0.07f, 0.07f, 0.07f);
             isDragging = true;
-            line.transform.localScale -= new Vector3(0.005f, 0, -0.00005f);
+            line.transform.localScale -= new Vector3(0.007f, 0, -0.00007f);
           }
 		}
-		if (Input.GetMouseButtonUp (0)) {
+		if (Input.GetTouch(0).phase == TouchPhase.Ended) {
           Debug.Log("push");
           if(NoPush)
           {
-          OnDrag ();
           isDragging = false;
           NoPush = false;
+          OnDrag ();
           }
 		}
-
+		}
 		if(isDragging)
 		{
-		  transform.localScale += new Vector3(0.006f, 0.006f, 0.006f);
-		  Ball.transform.localScale -= new Vector3(0.006f, 0.006f, 0.006f);
-		  line.transform.localScale -= new Vector3(0.0003f, 0, -0.00005f);
-		  distance += 0.01f * distance;
+		  transform.localScale += new Vector3(0.008f, 0.008f, 0.008f);
+		  Ball.transform.localScale -= new Vector3(0.008f, 0.008f, 0.008f);
+		  line.transform.localScale -= new Vector3(0.0005f, 0, -0.00007f);
+		  distance += 0.0085f * distance;
 		}
     }
 
 	void OnDrag ()
 	{
        rb.AddForce(door.transform.forward * 1200f);
-       Invoke("InstantiateObject", 1.3f);
+       Invoke("InstantiateObject", 1.2f);
        GetComponent <ColisionBall>().distance = distance;
 	}
 	void InstantiateObject()

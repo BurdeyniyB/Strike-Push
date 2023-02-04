@@ -55,7 +55,7 @@ public class ObstacleInstantiate : MonoBehaviour
         }
         else
         {
-          if(listLine[i].transform.position.x < -(Line.transform.localScale.x * 10f) || listLine[i].transform.position.x > (Line.transform.localScale.x * 10f))
+          if(listLine[i].transform.position.x < -(Line.transform.localScale.x * 9.8f) || listLine[i].transform.position.x > (Line.transform.localScale.x * 9.8f))
           {
             listLine.Remove(listLine[i]);
           }
