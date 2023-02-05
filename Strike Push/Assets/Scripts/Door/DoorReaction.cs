@@ -9,7 +9,7 @@ public class DoorReaction : MonoBehaviour
 
      void Update()
      {
-       if(Vector3.Distance(ball.transform.position, transform.position) < 5f)
+       if(ball != null && Vector3.Distance(ball.transform.position, transform.position) < 5f)
        {
          GetComponent <Animator> ().Play("doorOpen");
        }

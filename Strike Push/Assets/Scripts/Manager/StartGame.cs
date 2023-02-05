@@ -10,5 +10,6 @@ public class StartGame : MonoBehaviour
     {
         BallInstance.instance.InstantiateObject();
         Start_Button.SetActive(false);
+        PlayerPrefs.SetInt("Click", 1);
     }
 }

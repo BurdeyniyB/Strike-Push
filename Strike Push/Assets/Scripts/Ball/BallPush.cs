@@ -30,6 +30,8 @@ public class BallPush : MonoBehaviour
           Debug.Log("crya");
           if(NoPush)
           {
+            GetComponent<AudioSource>().Play();
+            Debug.Log("Balon");
 		    Ball.transform.localScale -= new Vector3(0.07f, 0.07f, 0.07f);
 		    transform.localScale += new Vector3(0.07f, 0.07f, 0.07f);
             isDragging = true;
@@ -38,6 +40,7 @@ public class BallPush : MonoBehaviour
 		}
 		if (Input.GetTouch(0).phase == TouchPhase.Ended) {
           Debug.Log("push");
+          GetComponent<AudioSource>().Stop();
           if(NoPush)
           {
           isDragging = false;

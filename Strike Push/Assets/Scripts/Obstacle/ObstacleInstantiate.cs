@@ -34,7 +34,7 @@ public class ObstacleInstantiate : MonoBehaviour
         Vector3 randomSpawnPosition = new Vector3(Random.Range(minX, maxX), -2.8f, Random.Range(minZ, maxZ));
         list.Add(Instantiate(ObstacleObj, randomSpawnPosition, Quaternion.identity));
         list[i].transform.SetParent(transfomSession);
-        if((list[i].transform.position.x > -(Line.transform.localScale.x * 8f) && list[i].transform.position.x < (Line.transform.localScale.x * 8f)) && (list[i].transform.position.z > 12f && list[i].transform.position.z < 21f))
+        if((list[i].transform.position.x > -(Line.transform.localScale.x * 8f) && list[i].transform.position.x < (Line.transform.localScale.x * 8f)) && (list[i].transform.position.z > 12f && list[i].transform.position.z < 23f))
         {
           listLine.Add(list[i]);
         }
@@ -78,21 +78,7 @@ public class ObstacleInstantiate : MonoBehaviour
         {
            Destroy(ballPush);
         }
-//      ForwardBall.GetComponent <Rigidbody>().isKinematic = false;
       ForwardBall.GetComponent <Rigidbody>().velocity += new Vector3(0, 0, 0.1f);
       Ball.GetComponent <Animator>().Play("Jump");
-//      StartCoroutine(Jump());
     }
-
-//    IEnumerator Jump()
-//    {
-//      while(JumpWhile)
-//      {
-//       Ball.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f);
-//
-//       yield return new WaitForSeconds(0.5f);
-//
-//       Ball.GetComponent<Rigidbody>().AddForce(Vector3.down * 5f);
-//      }
-//    }
 }

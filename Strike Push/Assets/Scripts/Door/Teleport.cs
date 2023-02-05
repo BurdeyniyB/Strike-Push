@@ -9,7 +9,7 @@ public class Teleport : MonoBehaviour
         {
             if (col.gameObject.tag == "Player")
             {
-                SceneManager.LoadScene(0);
+                EndGame.instance.WinGame();
             }
         }
 }
